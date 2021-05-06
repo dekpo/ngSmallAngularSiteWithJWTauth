@@ -17,7 +17,6 @@ export class BlogComponent implements OnInit {
     console.log(data);
     this.posts = data;
     });
-    console.log(localStorage.getItem('TOKEN'));
   }
 
 }
