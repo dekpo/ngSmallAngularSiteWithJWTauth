@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { tap, catchError } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 const TOKEN_KEY = 'access_token';
 
@@ -16,7 +17,7 @@ export class AuthService {
     this.checkToken();
   }
 
-    url = 'http://localhost:443';
+    url = environment.URL_PROD;
     user = null;
     authenticationState = new BehaviorSubject(false);
 

@@ -15,12 +15,14 @@ import { JWT_OPTIONS, JwtModule } from '@auth0/angular-jwt';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { JwtInterceptor } from './services/jwt.interceptor';
 
+import { environment } from '../environments/environment';
+
 export function jwtOptionsFactory(){
   return {
     tokenGetter: () =>{
       return localStorage.getItem('access_token')
     },
-    allowedDomains: ['localhost:443']
+    allowedDomains: [environment.URL_DEV, environment.URL_PROD]
   }
 }
 
