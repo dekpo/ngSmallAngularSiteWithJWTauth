@@ -12,6 +12,8 @@ import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { JWT_OPTIONS, JwtModule } from '@auth0/angular-jwt';
 
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+
 export function jwtOptionsFactory(){
   return {
     tokenGetter: () =>{
@@ -36,6 +38,8 @@ export function jwtOptionsFactory(){
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     JwtModule.forRoot({
       jwtOptionsProvider: {
         provide: JWT_OPTIONS,
