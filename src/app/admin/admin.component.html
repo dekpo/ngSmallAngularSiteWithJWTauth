@@ -1,13 +1,13 @@
 <div class="w3-container w3-animate-right">
     <h2>Admin - Add a post</h2>
     <section>
-        <form class="w3-container">
+        <form [formGroup]="postForm" (ngSubmit)="post()" class="w3-container">
 
             <label>Post title</label>
-            <input class="w3-input" type="text">
+            <input formControlName="title" class="w3-input" type="text">
             
             <label>Post text</label>
-            <textarea class="w3-input"></textarea>
+            <textarea formControlName="text" class="w3-input"></textarea>
 
             <button type="submit" class="w3-btn w3-black w3-margin">Add Post</button>
         </form>
