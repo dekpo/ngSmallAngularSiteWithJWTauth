@@ -10,6 +10,17 @@ import { BlogComponent } from './blog/blog.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
+import { JWT_OPTIONS, JwtModule } from '@auth0/angular-jwt';
+
+export function jwtOptionsFactory(storage){
+  return {
+    tokenGetter: () =>{
+      return storage.getItem('access_token')
+    },
+    allowedDomains: ['localhost:443']
+  }
+}
+
 
 @NgModule({
   declarations: [
@@ -24,7 +35,14 @@ import { AdminComponent } from './admin/admin.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    JwtModule.forRoot({
+      jwtOptionsProvider: {
+        provide: JWT_OPTIONS,
+        useFactory: jwtOptionsFactory,
+        deps: [localStorage],
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
