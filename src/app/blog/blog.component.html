@@ -1,0 +1,12 @@
+<div class="w3-container w3-animate-right">
+    <h2>Blog</h2>
+    <article class="w3-card-2 w3-margin" *ngFor="let post of posts">
+        <img [src]="'http://localhost:443/posts/'+post.img" alt="post.title" width="100%">
+        <div class="w3-container">
+        <h3>{{post.title}}</h3>
+        <p>{{post.text}}</p>
+        <p class="w3-panel"><small>{{post.author?.username}}</small></p>
+        <p *ngIf="post.author.avatar">avatar</p>
+        </div>
+    </article>
+</div>
