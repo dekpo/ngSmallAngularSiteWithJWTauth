@@ -12,10 +12,10 @@ import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { JWT_OPTIONS, JwtModule } from '@auth0/angular-jwt';
 
-export function jwtOptionsFactory(storage){
+export function jwtOptionsFactory(){
   return {
     tokenGetter: () =>{
-      return storage.getItem('access_token')
+      return localStorage.getItem('access_token')
     },
     allowedDomains: ['localhost:443']
   }
@@ -39,8 +39,7 @@ export function jwtOptionsFactory(storage){
     JwtModule.forRoot({
       jwtOptionsProvider: {
         provide: JWT_OPTIONS,
-        useFactory: jwtOptionsFactory,
-        deps: [localStorage],
+        useFactory: jwtOptionsFactory
       }
     })
   ],
