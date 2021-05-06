@@ -7,12 +7,13 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { BlogComponent } from './blog/blog.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { JWT_OPTIONS, JwtModule } from '@auth0/angular-jwt';
 
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { JwtInterceptor } from './services/jwt.interceptor';
 
 export function jwtOptionsFactory(){
   return {
@@ -47,7 +48,9 @@ export function jwtOptionsFactory(){
       }
     })
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
