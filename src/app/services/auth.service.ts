@@ -17,7 +17,7 @@ export class AuthService {
     this.checkToken();
   }
 
-    url = environment.URL_PROD;
+    url = environment.URL_DEV;
     user = null;
     authenticationState = new BehaviorSubject(false);
 

@@ -9,7 +9,7 @@
             <label>Pass</label>
             <input formControlName="password" class="w3-input" type="password">
 
-            <button type="submit" class="w3-btn w3-black w3-margin">Login</button>
+            <button type="submit" [disabled]="!authForm.valid" class="w3-btn w3-black w3-margin">Login</button>
         </form>
     </section>
 </div>
