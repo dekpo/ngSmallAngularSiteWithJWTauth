@@ -4,8 +4,7 @@
 
 export const environment = {
   production: false,
-  URL_DEV: 'http://localhost:443',
-  URL_PROD: 'https://dekpo.herokuapp.com'
+  URL: 'http://localhost:443'
 };
 
 /*

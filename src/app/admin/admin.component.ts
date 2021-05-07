@@ -44,6 +44,9 @@ export class AdminComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.authService.checkToken();
+    
     this.postForm = this.formBuilder.group({
       title: ['',[Validators.required]],
       text: ['',[Validators.required]]

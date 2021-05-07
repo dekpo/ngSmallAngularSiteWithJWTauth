@@ -22,7 +22,7 @@ export function jwtOptionsFactory(){
     tokenGetter: () =>{
       return localStorage.getItem('access_token')
     },
-    allowedDomains: [environment.URL_DEV, environment.URL_PROD]
+    allowedDomains: [environment.URL]
   }
 }
 
